@@ -1,0 +1,31 @@
+unsigned long previousMillisFlicker = 0;
+unsigned long previousMillisClash = 0;
+
+boolean flash = false;
+boolean clash = false;
+
+void setup() {
+    pinMode(2, INPUT);
+    pinMode(3, OUTPUT);
+    pinMode(4, OUTPUT);
+}
+
+void loop() {
+    unsigned long currentMillis = millis();
+    if ((unsigned long)(currentMillis - previousMillisFlicker) >= random(60000)) { // how long accent LED is off 
+        flash = !flash;
+        digitalWrite(4, flash);
+        previousMillisFlicker = currentMillis;
+    }
+
+    if (digitalRead(2) == HIGH) {
+        if ((unsigned long)(currentMillis - previousMillisClash) >= random(500, 1000)) { // how long clash LED is on
+            clash = !clash;
+            digitalWrite(3, clash);
+            previousMillisClash = currentMillis;
+        }
+    } else {
+        clash = false;
+        digitalWrite(3, clash);
+    }
+}
