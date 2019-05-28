@@ -1,4 +1,4 @@
-# AT-CB
+# AT-CB (ATtiny85 - Color Board)
 Toy lightsaber RGB board, no sound.
 
 Main RGB die is always on, secondary die flickers randomly (pin4), and third (pin3) flashes on impact (from pin2).
