@@ -1,4 +1,4 @@
-// Easiest way of doing this is with delay but it may introduce other bugs, should use millis.
+// Easiest way of doing this is with delay but it may introduce other bugs, should use millis so use the other file.
 
 void setup()
 {
